@@ -1,0 +1,83 @@
+import java.util.Random;
+
+
+public class NonPlayerCharacter{
+	
+	private boolean active;
+	private String intelligenceType;
+	private String uniqueID;
+	private String personality;
+	
+	
+	public NonPlayerCharacter() {
+		super();
+		setActive(false);
+		setIntelligenceType("AVERAGE");
+			
+	} //end empty-argument constructor
+	
+	public boolean isActive() {
+		return active;
+	}
+
+	public String getIntelligenceType() {
+		return intelligenceType;
+	}
+
+	public NonPlayerCharacter(String id, String personality, boolean active, String intelligenceType) {
+		super(uniqueID, personality);
+		this.active = active;
+		this.intelligenceType = intelligenceType;
+			
+	}//end preferred constructor
+
+	//Getters and Setters
+	
+	public String getUniqueID() {
+		return uniqueID;
+	}
+
+	public void setUniqueId(String uniqueId) {
+		this.uniqueID = uniqueId;
+	}
+
+	public String getPersonality() {
+		return personality;
+	}
+
+	public void setPersonality(String personality) {
+		this.personality = personality;
+	}
+	
+	
+	public String introduce() {
+		return "Hello, my name is "+super.uniqueID;		
+	}
+	
+	public String exclaim() {
+		String[] strArray= {"Dag Gummit","Doggone it","Holy cow","Jeez","Well cheese and crackers"};
+		Random r = new Random();
+		int randomID = r.nextInt(4);
+		return strArray[randomID];
+	}
+	
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	public void setIntelligenceType(String intelligenceType) {
+		this.intelligenceType = intelligenceType;
+	}
+	
+	public String reportStructure() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(super.reportStructure()).append("==================================\n");
+		sb.append("Active: "+getUniqueID()+"\n");
+		sb.append("Intelligence: "+getIntelligenceType()+"\n");
+		sb.append("==================================\n");
+		
+		return sb.toString();			
+			
+		
+	}
+
+}//end class
